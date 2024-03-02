@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similarity Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Similarity Checker</h2>
+        <p>Enter two sentences to compare their similarity.</p>
+        <form action="/" method="post" class="similarity-form">
+            <div class="input-group">
+                <input type="text" id="sen1" name="sen1" placeholder="Sentence 1" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="sen2" name="sen2" placeholder="Sentence 2" required>
+            </div>
+            <button type="submit">Check Similarity</button>
+        </form>
+        {% if result is not none %}
+        <div class="result">
+            <h3>Similarity Score: {{ result }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
