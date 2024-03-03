@@ -3,12 +3,7 @@ NLP assignment from AIT
 
 **Kaung Htet Cho (st124092)**
 
-## Table of Contents
-1. [Task1](#Task1)
-2. [Task2](#Task2)
-3. [Task3](#Task3)
-4. [Task4](#Task4)
-
+Supplementry folder is not necessary for assignment
 
 ## Task1
 ### Train BERT from scratch
@@ -17,6 +12,7 @@ NLP assignment from AIT
 - vocab_size = 7485
 - total_sentence = 6184
 - encoder_layers = 6
+- n_epochs = 10
 
 Trained the base BERT model saved the bert_from_scratch.pth for later use in sentence-BERT
 
@@ -24,15 +20,24 @@ Trained the base BERT model saved the bert_from_scratch.pth for later use in sen
 ### Sentence BERT 
 
 1. Load the datasets (SNLI, MNLI) from hugging face
-2. Load weight file from last trained BERT base model and took the output, done Objective function
+2. Load weight file from last trained BERT base model and took the output, and then implemented Objective loss function
+3. Hyperparameters
+    - n_epochs = 5
+    - linear_scheduler_with_warmup
 
 ## Task3
 ### Evaluation and Analysis
 
-1. Evaluation of sentence transformer model: 
-2. Performance comparison
-3. Impact of Hyperparameters: 
-4. Challenges: Personal GPU which can have lower GPU memory can face CUDA out of Memory in inferencing the sentence BERT
+1. Performance comparison 
+
+| Model          | Training time | Training loss |
+|----------------|-------------|---------------|
+| BERT pretrained - uncased       |    50s        |   18.541     |    
+| BERT from scratch |          54s   |     13.695       |  
+
+2. Impact of Hyperparameters: We can manipulate the hyperparameters according to whatwe want, we can think of increasing bigger training dataset, number of epochs and encoder layers(6) to standard pretrained (12 layers) but we should leave the embedding size 768 unchanged because original BERT got the best results among many implementation
+3. Challenges: Personal GPU which can have lower GPU memory can face CUDA out of Memory in inferencing the sentence BERT because it takes two long sentences
+
 
 ## Task4
 ### Text-similarity Development
